@@ -1,0 +1,11 @@
+.profile__name-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__name-section {
+    margin-bottom: 0;
+  }
+}

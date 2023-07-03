@@ -1,0 +1,23 @@
+.elements__image {
+  width: 100%;
+  min-height: 282px;
+  object-fit: cover;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.elements__image:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .elements__image {
+    min-height: 344px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .elements__image {
+    min-height: 282px;
+  }
+}

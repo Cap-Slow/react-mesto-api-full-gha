@@ -1,0 +1,21 @@
+.elements__card-profile {
+  max-width: 246px;
+  margin: 0 20px 0 21px;
+  padding: 25px 0 25px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1023px) {
+  .elements__card-profile {
+    max-width: 280px;
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .elements__card-profile {
+    max-width: 246px;
+    margin: 0 20px 0 21px;
+  }
+}
