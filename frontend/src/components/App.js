@@ -42,34 +42,30 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      getContent(jwt)
-        .then((response) => {
-          if (response) {
-            setLoggedIn(true);
-            setUserEmail(response.data.email);
-            navigate('/');
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      setLoggedIn(false);
-    }
+    getContent()
+      .then((response) => {
+        if (response) {
+          setLoggedIn(true);
+          setUserEmail(response.email);
+          navigate('/');
+        } else {
+          setLoggedIn(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoggedIn(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function onLogin(email, password) {
     authorize(email, password)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem('jwt', data.token);
-          setLoggedIn(true);
-          setUserEmail(email);
-          navigate('/');
-          setErrorMessage('');
-        }
+      .then(() => {
+        setLoggedIn(true);
+        setUserEmail(email);
+        navigate('/');
+        setErrorMessage('');
       })
       .catch((error) => {
         console.log(error);
@@ -121,7 +117,8 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
+    console.log(isLiked);
     api
       .toggleLike(card._id, isLiked)
       .then((newCard) => {
