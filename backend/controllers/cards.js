@@ -56,7 +56,7 @@ function addCardLike(req, res, next) {
   const { cardId } = req.params;
   return Card.findByIdAndUpdate(
     cardId,
-    { $addToSet: { likes: req.params._id } },
+    { $addToSet: { likes: req.user._id } },
     { new: true }
   )
     .select('-__v')
