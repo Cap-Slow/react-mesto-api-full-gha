@@ -20,12 +20,14 @@ class Api {
   getInitialCards() {
     return this._request(`${this._url}cards`, {
       headers: this._headers,
+      credentials: 'include',
     });
   }
 
   getUserInfo() {
     return this._request(`${this._url}users/me`, {
       headers: this._headers,
+      credentials: 'include',
     });
   }
 
@@ -37,6 +39,7 @@ class Api {
         name,
         about,
       }),
+      credentials: 'include',
     });
   }
 
@@ -44,6 +47,7 @@ class Api {
     return this._request(`${this._url}users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         avatar,
       }),
@@ -54,6 +58,7 @@ class Api {
     return this._request(`${this._url}cards`, {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name,
         link,
@@ -65,13 +70,15 @@ class Api {
     return this._request(`${this._url}cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: 'include',
     });
   }
 
   toggleLike(cardId, isLiked) {
-    return this._request(`${this._url}cards/likes/${cardId}`, {
+    return this._request(`${this._url}cards/${cardId}/likes`, {
       method: isLiked ? 'DELETE' : 'PUT',
       headers: this._headers,
+      credentials: 'include',
     });
   }
 }
