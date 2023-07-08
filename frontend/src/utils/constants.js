@@ -1,5 +1,4 @@
-export const mestoServerAddress =
-  'https://mesto.nomoreparties.co/v1/cohort-63/';
+export const mestoServerAddress = 'http://localhost:4000/';
 export const token = 'cb5146ac-a60f-490e-a276-8677c023f616';
 export const config = {
   formSelector: '.popup__form',
