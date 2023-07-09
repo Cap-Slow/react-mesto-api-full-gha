@@ -111,7 +111,8 @@ function login(req, res, next) {
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          sameSite: true,
+          // eslint-disable-next-line no-undef
+          sameSite: 'none',
         })
         .status(OK_CODE)
         .send({ message: AUTH_SUCCESS_MESSAGE });
