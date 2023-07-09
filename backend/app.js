@@ -17,7 +17,7 @@ mongoose.connect(DATABASE_PATH || 'mongodb://localhost:27017/mestodb', {
 const app = express();
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'moreparties.nomoreparties.sbs'],
+    origin: ['http://localhost:3000', 'https://moreparties.nomoreparties.sbs'],
     credentials: true,
   })
 );
