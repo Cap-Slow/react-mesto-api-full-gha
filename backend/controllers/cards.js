@@ -5,8 +5,6 @@ const ForbiddenError = require('../utils/errors/forbiddenError');
 const {
   OK_CODE,
   CREATED_CODE,
-  SERVER_ERR_CODE,
-  SERVER_ERR_MESSAGE,
   NOT_FOUND_CARDID,
   FORBIDDEN_CARD_DELETE_MESSAGE,
 } = require('../utils/constants');
