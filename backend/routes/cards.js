@@ -7,7 +7,7 @@ const {
   addCardLike,
   removeCardLike,
 } = require('../controllers/cards');
-const urlRegex = require('../utils/constants');
+const { urlRegex } = require('../utils/constants');
 
 cardRoutes.get('', getCards);
 cardRoutes.post(
