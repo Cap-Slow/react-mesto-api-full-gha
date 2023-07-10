@@ -34,23 +34,23 @@ function getUserById(req, res, next) {
 }
 
 function createUser(req, res, next) {
-  const { name, about, avatar, email } = req.body;
+  const {
+    name, about, avatar, email,
+  } = req.body;
   bcrypt
     .hash(req.body.password, 10)
-    .then((hash) =>
-      User.create({
-        name,
-        about,
-        avatar,
-        email,
-        password: hash,
-      }).then((user) => {
-        const userWithoutVersion = user.toObject();
-        delete userWithoutVersion.__v;
-        delete userWithoutVersion.password;
-        return res.status(CREATED_CODE).send(userWithoutVersion);
-      })
-    )
+    .then((hash) => User.create({
+      name,
+      about,
+      avatar,
+      email,
+      password: hash,
+    }).then((user) => {
+      const userWithoutVersion = user.toObject();
+      delete userWithoutVersion.__v;
+      delete userWithoutVersion.password;
+      return res.status(CREATED_CODE).send(userWithoutVersion);
+    }))
     .catch(next);
 }
 function updateDataDecorator(updateFunction) {
@@ -72,7 +72,7 @@ function updateAvatar(req) {
   return User.findByIdAndUpdate(
     req.user._id,
     { avatar },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   );
 }
 
@@ -81,7 +81,7 @@ function updateProfile(req) {
   return User.findByIdAndUpdate(
     req.user._id,
     { name, about },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   );
 }
 

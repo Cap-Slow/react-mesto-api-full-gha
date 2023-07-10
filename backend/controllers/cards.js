@@ -53,7 +53,7 @@ function addCardLike(req, res, next) {
   return Card.findByIdAndUpdate(
     cardId,
     { $addToSet: { likes: req.user._id } },
-    { new: true }
+    { new: true },
   )
     .select('-__v')
     .then((card) => {
@@ -70,7 +70,7 @@ function removeCardLike(req, res, next) {
   return Card.findByIdAndUpdate(
     cardId,
     { $pull: { likes: req.user._id } },
-    { new: true }
+    { new: true },
   )
     .select('-__v')
     .then((card) => {

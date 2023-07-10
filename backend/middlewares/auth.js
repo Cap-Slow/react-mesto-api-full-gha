@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
   jwt.verify(token, JWT_SECRET || 'some-secret-key', (err, decoded) => {
     if (err) {
       next(unauthorizedError);
-      return;
+      return false;
     }
     payload = decoded;
     return payload;

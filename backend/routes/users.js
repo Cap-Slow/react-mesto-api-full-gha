@@ -25,7 +25,7 @@ userRoutes.post(
       })
       .unknown(true),
   }),
-  createUser
+  createUser,
 );
 
 userRoutes.post(
@@ -36,7 +36,7 @@ userRoutes.post(
       password: Joi.string().required(),
     }),
   }),
-  login
+  login,
 );
 
 userRoutes.get('/users', auth, getUsers);
@@ -50,7 +50,7 @@ userRoutes.get(
       required: true,
     }),
   }),
-  getUserInfo
+  getUserInfo,
 );
 
 userRoutes.get(
@@ -62,7 +62,7 @@ userRoutes.get(
       required: true,
     }),
   }),
-  getUserById
+  getUserById,
 );
 
 userRoutes.patch(
@@ -74,7 +74,7 @@ userRoutes.patch(
       about: Joi.string().required().min(2).max(30),
     }),
   }),
-  decoratedUpdateProfile
+  decoratedUpdateProfile,
 );
 
 userRoutes.patch(
@@ -85,7 +85,7 @@ userRoutes.patch(
       avatar: Joi.string().required().pattern(urlRegex),
     }),
   }),
-  decoratedUpdateAvatar
+  decoratedUpdateAvatar,
 );
 
 module.exports = userRoutes;

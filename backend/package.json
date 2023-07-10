@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Cap-Slow/express-mesto-gha#readme",
   "devDependencies": {
-    "dotenv": "^16.3.1",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -37,6 +36,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
     "validator": "^13.9.0",
-    "winston": "^3.9.0"
+    "winston": "^3.9.0",
+    "dotenv": "^16.3.1"
   }
 }

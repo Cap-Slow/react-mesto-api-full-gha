@@ -6,7 +6,7 @@ const {
   EXISTING_EMAIL_MESSAGE,
 } = require('../utils/constants');
 
-module.exports = (err, req, res, next) => {
+module.exports = (err, req, res) => {
   const { statusCode = SERVER_ERR_CODE, message = SERVER_ERR_MESSAGE } = err;
   if (err.code === CELEBRATE_CONFLICT_CODE) {
     res.status(CONFLICT_CODE).send({ message: EXISTING_EMAIL_MESSAGE });

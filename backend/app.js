@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: ['http://localhost:3000', 'https://moreparties.nomoreparties.sbs'],
     credentials: true,
-  })
+  }),
 );
 app.use(bodyParser.json());
 app.use(cookieParser());

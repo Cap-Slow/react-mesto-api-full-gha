@@ -18,7 +18,7 @@ cardRoutes.post(
       link: Joi.string().required().pattern(urlRegex),
     }),
   }),
-  createCard
+  createCard,
 );
 cardRoutes.delete(
   '/:cardId',
@@ -27,7 +27,7 @@ cardRoutes.delete(
       cardId: Joi.string().hex().length(24),
     }),
   }),
-  deleteCard
+  deleteCard,
 );
 cardRoutes.put(
   '/:cardId/likes',
@@ -36,7 +36,7 @@ cardRoutes.put(
       cardId: Joi.string().hex().length(24),
     }),
   }),
-  addCardLike
+  addCardLike,
 );
 cardRoutes.delete(
   '/:cardId/likes',
@@ -45,7 +45,7 @@ cardRoutes.delete(
       cardId: Joi.string().hex().length(24),
     }),
   }),
-  removeCardLike
+  removeCardLike,
 );
 
 module.exports = cardRoutes;
