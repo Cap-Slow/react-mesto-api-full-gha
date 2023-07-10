@@ -11,13 +11,11 @@ const {
   FORBIDDEN_CARD_DELETE_MESSAGE,
 } = require('../utils/constants');
 
-function getCards(req, res) {
+function getCards(req, res, next) {
   return Card.find({})
     .select('-__v')
     .then((cards) => res.status(OK_CODE).send(cards))
-    .catch(() => {
-      res.status(SERVER_ERR_CODE).send({ message: SERVER_ERR_MESSAGE });
-    });
+    .catch(next);
 }
 
 function createCard(req, res, next) {
@@ -41,8 +39,8 @@ function deleteCard(req, res, next) {
       if (card.owner.toString() !== req.user._id) {
         throw new ForbiddenError(FORBIDDEN_CARD_DELETE_MESSAGE);
       }
+      return Card.findByIdAndRemove(cardId);
     })
-    .then(() => Card.findByIdAndRemove(cardId))
     .then((card) => {
       if (!card) {
         throw new NotFoundError(NOT_FOUND_CARDID);
