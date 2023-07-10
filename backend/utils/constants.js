@@ -17,6 +17,7 @@ const WRONG_CREDENTIALS_MESSAGE = 'Неправильные почта или п
 const FORBIDDEN_CARD_DELETE_MESSAGE = 'Нельзя удалять чужие карточки.';
 const EXISTING_EMAIL_MESSAGE = 'Пользователь с таким email уже существует.';
 const AUTH_SUCCESS_MESSAGE = 'Успешная авторизация.';
+const urlRegex = /^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32})[^\s@]*\/?$/i;
 module.exports = {
   OK_CODE,
   CREATED_CODE,
@@ -37,4 +38,5 @@ module.exports = {
   EXISTING_EMAIL_MESSAGE,
   VALIDATION_ERR_MESSAGE,
   AUTH_SUCCESS_MESSAGE,
+  urlRegex,
 };
