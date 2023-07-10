@@ -10,7 +10,7 @@ const {
   getUserInfo,
 } = require('../controllers/users');
 const auth = require('../middlewares/auth');
-const urlRegex = require('../utils/constants');
+const { urlRegex } = require('../utils/constants');
 
 userRoutes.post(
   '/signup',
@@ -43,46 +43,48 @@ userRoutes.get('/users', auth, getUsers);
 
 userRoutes.get(
   '/users/me',
+  auth,
   celebrate({
     params: Joi.object().keys({
       userId: Joi.string().hex().length(24),
+      required: true,
     }),
   }),
-  auth,
   getUserInfo
 );
 
 userRoutes.get(
   '/users/:userId',
+  auth,
   celebrate({
     params: Joi.object().keys({
       userId: Joi.string().hex().length(24),
+      required: true,
     }),
   }),
-  auth,
   getUserById
 );
 
 userRoutes.patch(
   '/users/me',
+  auth,
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
       about: Joi.string().required().min(2).max(30),
     }),
   }),
-  auth,
   decoratedUpdateProfile
 );
 
 userRoutes.patch(
   '/users/me/avatar',
+  auth,
   celebrate({
     body: Joi.object().keys({
       avatar: Joi.string().required().pattern(urlRegex),
     }),
   }),
-  auth,
   decoratedUpdateAvatar
 );
 
