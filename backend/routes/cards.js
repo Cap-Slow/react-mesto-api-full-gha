@@ -7,6 +7,7 @@ const {
   addCardLike,
   removeCardLike,
 } = require('../controllers/cards');
+const urlRegex = require('../utils/constants');
 
 cardRoutes.get('', getCards);
 cardRoutes.post(
@@ -14,9 +15,7 @@ cardRoutes.post(
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
-      link: Joi.string()
-        .required()
-        .pattern(/^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32})[^\s@]*\/?$/i),
+      link: Joi.string().required().pattern(urlRegex),
     }),
   }),
   createCard
