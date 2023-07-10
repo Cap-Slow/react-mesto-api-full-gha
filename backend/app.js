@@ -1,5 +1,4 @@
 require('dotenv').config();
-const bodyParser = require('body-parser');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
@@ -21,7 +20,7 @@ app.use(
     credentials: true,
   }),
 );
-app.use(bodyParser.json());
+express.json();
 app.use(cookieParser());
 app.use(requestLogger);
 app.get('/crash-test', () => {
