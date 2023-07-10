@@ -53,6 +53,7 @@ function createUser(req, res, next) {
     }))
     .catch(next);
 }
+
 function updateDataDecorator(updateFunction) {
   return function handleErrors(req, res, next) {
     return updateFunction(req, res, next)
