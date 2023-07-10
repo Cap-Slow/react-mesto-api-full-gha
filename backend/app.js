@@ -20,7 +20,7 @@ app.use(
     credentials: true,
   }),
 );
-express.json();
+app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
 app.get('/crash-test', () => {
@@ -32,5 +32,4 @@ app.use(routes);
 app.use(errorLogger);
 app.use(errors());
 app.use(handleErrors);
-
 app.listen(PORT);
