@@ -7,15 +7,14 @@ const { JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
-  const unauthorizedError = new UnauthorizedError(UNAUTHORIZED_MESSAGE);
   if (!token) {
-    next(unauthorizedError);
+    next(new UnauthorizedError(UNAUTHORIZED_MESSAGE));
     return;
   }
   let payload;
   jwt.verify(token, JWT_SECRET || 'some-secret-key', (err, decoded) => {
     if (err) {
-      next(unauthorizedError);
+      next(new UnauthorizedError(UNAUTHORIZED_MESSAGE));
       return false;
     }
     payload = decoded;
@@ -23,7 +22,7 @@ module.exports = (req, res, next) => {
   });
   const isUserExist = User.findById(payload._id).then((user) => Boolean(user));
   if (!isUserExist) {
-    next(unauthorizedError);
+    next(new UnauthorizedError(UNAUTHORIZED_MESSAGE));
     return;
   }
   req.user = { _id: payload._id };
