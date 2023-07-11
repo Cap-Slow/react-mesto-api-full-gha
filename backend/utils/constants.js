@@ -4,7 +4,7 @@ const UNAUTHORIZED_CODE = 401;
 const FORBIDDEN_CODE = 403;
 const NOT_FOUND_CODE = 404;
 const CONFLICT_CODE = 409;
-const CELEBRATE_CONFLICT_CODE = 11000;
+const DB_CONFLICT_CODE = 11000;
 const SERVER_ERR_CODE = 500;
 const SERVER_ERR_MESSAGE = 'На сервере произошла ошибка.';
 const NOT_FOUND_USERID = 'Пользователь с указанным id не найден.';
@@ -22,7 +22,7 @@ module.exports = {
   FORBIDDEN_CODE,
   CONFLICT_CODE,
   SERVER_ERR_CODE,
-  CELEBRATE_CONFLICT_CODE,
+  DB_CONFLICT_CODE,
   UNAUTHORIZED_CODE,
   SERVER_ERR_MESSAGE,
   NOT_FOUND_USERID,
