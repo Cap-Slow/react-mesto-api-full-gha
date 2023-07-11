@@ -13,6 +13,7 @@ const UNAUTHORIZED_MESSAGE = 'Нет доступа.';
 const WRONG_CREDENTIALS_MESSAGE = 'Неправильные почта или пароль.';
 const FORBIDDEN_CARD_DELETE_MESSAGE = 'Нельзя удалять чужие карточки.';
 const EXISTING_EMAIL_MESSAGE = 'Пользователь с таким email уже существует.';
+const NONEXISTENT_URL_MESSAGE = 'Запрашиваемый ресурс не найден.';
 const AUTH_SUCCESS_MESSAGE = 'Успешная авторизация.';
 const urlRegex = /^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32})[^\s@]*\/?$/i;
 module.exports = {
@@ -32,5 +33,6 @@ module.exports = {
   FORBIDDEN_CARD_DELETE_MESSAGE,
   EXISTING_EMAIL_MESSAGE,
   AUTH_SUCCESS_MESSAGE,
+  NONEXISTENT_URL_MESSAGE,
   urlRegex,
 };
