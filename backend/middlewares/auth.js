@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
 const { UNAUTHORIZED_MESSAGE } = require('../utils/constants');
 const UnauthorizedError = require('../utils/errors/unauthorizedError');
 
@@ -20,11 +19,6 @@ module.exports = (req, res, next) => {
     payload = decoded;
     return payload;
   });
-  const isUserExist = User.findById(payload._id).then((user) => Boolean(user));
-  if (!isUserExist) {
-    next(new UnauthorizedError(UNAUTHORIZED_MESSAGE));
-    return;
-  }
   req.user = { _id: payload._id };
   next();
 };
